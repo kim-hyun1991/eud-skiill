@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lumière · 스테인드글라스 개인 박물관</title>
+  <link rel="stylesheet" href="css/main.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Noto+Serif+KR:wght@300;400;600&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+<!-- ── LOADING SCREEN ── -->
+<div id="loader">
+  <div class="loader-glass"></div>
+  <p class="loader-text">Lumière Museum</p>
+</div>
+
+<!-- ── NAVIGATION ── -->
+<nav id="nav">
+  <div class="nav-brand">
+    <span class="brand-light">L</span>umière
+  </div>
+  <ul class="nav-links">
+    <li><a href="#hero">홈</a></li>
+    <li><a href="#collection">컬렉션</a></li>
+    <li><a href="#archive">아카이브</a></li>
+    <li><a href="#about">소개</a></li>
+  </ul>
+  <button class="nav-archive-btn" onclick="openArchive()">작품 등록</button>
+</nav>
+
+<!-- ── HERO ── -->
+<section id="hero">
+  <canvas id="glass-canvas"></canvas>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <p class="hero-sub">Private Museum of Stained Glass Art</p>
+    <h1 class="hero-title">빛을 담은<br/><em>스테인드글라스</em></h1>
+    <p class="hero-desc">색유리와 빛이 만나 탄생하는 입체적 예술의 세계로 당신을 초대합니다</p>
+    <a href="#collection" class="hero-btn">컬렉션 감상하기</a>
+  </div>
+  <div class="hero-scroll">
+    <span></span>
+    <p>스크롤</p>
+  </div>
+</section>
+
+<!-- ── MARQUEE ── -->
+<div class="marquee-wrap">
+  <div class="marquee-track">
+    <span>스테인드글라스</span><span>·</span>
+    <span>Stained Glass</span><span>·</span>
+    <span>입체 미술</span><span>·</span>
+    <span>Light &amp; Color</span><span>·</span>
+    <span>유리 공예</span><span>·</span>
+    <span>Glass Art</span><span>·</span>
+    <span>빛의 예술</span><span>·</span>
+    <span>스테인드글라스</span><span>·</span>
+    <span>Stained Glass</span><span>·</span>
+    <span>입체 미술</span><span>·</span>
+    <span>Light &amp; Color</span><span>·</span>
+    <span>유리 공예</span><span>·</span>
+    <span>Glass Art</span><span>·</span>
+    <span>빛의 예술</span><span>·</span>
+  </div>
+</div>
+
+<!-- ── COLLECTION ── -->
+<section id="collection">
+  <div class="section-header">
+    <p class="section-label">Collection</p>
+    <h2>주요 컬렉션</h2>
+    <p class="section-desc">각각의 작품은 고유한 색채와 빛으로 공간을 변환시킵니다</p>
+  </div>
+
+  <div class="gallery-grid" id="gallery-grid">
+    <!-- 샘플 작품 카드 (JS로 동적 추가됨) -->
+  </div>
+
+  <div class="gallery-empty" id="gallery-empty" style="display:none;">
+    <div class="empty-icon">◈</div>
+    <p>아직 등록된 작품이 없습니다.<br/>첫 번째 작품을 등록해 보세요.</p>
+    <button onclick="openArchive()">작품 등록하기</button>
+  </div>
+</section>
+
+<!-- ── HIGHLIGHT STRIP ── -->
+<section id="highlight">
+  <div class="highlight-inner">
+    <div class="highlight-text">
+      <p class="section-label">Featured</p>
+      <h2>빛과 색의<br/>경이로운 융합</h2>
+      <p>스테인드글라스는 단순한 장식이 아닙니다. 수백 년의 기법이 살아 숨쉬는 입체 예술이며, 빛이 통과할 때마다 새로운 생명을 얻습니다. 이 박물관은 그 숭고한 예술을 영구히 보존합니다.</p>
+    </div>
+    <div class="highlight-visual">
+      <div class="rosette" id="rosette"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ── ARCHIVE ACTIVITY ── -->
+<section id="archive">
+  <div class="section-header">
+    <p class="section-label">Archive Activity</p>
+    <h2>아카이브 활동</h2>
+    <p class="section-desc">나만의 스테인드글라스 작품을 등록하고 영구 보존하세요</p>
+  </div>
+
+  <div class="archive-steps">
+    <div class="step">
+      <div class="step-num">01</div>
+      <h3>촬영 & 업로드</h3>
+      <p>작품을 다양한 각도에서 촬영하여 고해상도 이미지를 업로드하세요. 빛의 변화를 담은 여러 장의 사진이 작품을 더욱 생생하게 표현합니다.</p>
+    </div>
+    <div class="step">
+      <div class="step-num">02</div>
+      <h3>메타데이터 기록</h3>
+      <p>작품명, 제작연도, 재료, 기법, 크기 등 상세 정보를 기록합니다. 입체 작품의 경우 치수와 설치 환경도 함께 기록하세요.</p>
+    </div>
+    <div class="step">
+      <div class="step-num">03</div>
+      <h3>보존 & 공유</h3>
+      <p>등록된 작품은 안전하게 보존되며 언제든 열람할 수 있습니다. 컬렉션 전체를 백업 파일로 다운로드하여 영구 보관하세요.</p>
+    </div>
+  </div>
+
+  <div class="archive-cta">
+    <button class="cta-btn" onclick="openArchive()">
+      <span>지금 작품 등록하기</span>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+    </button>
+    <button class="cta-btn cta-secondary" onclick="downloadBackup()">
+      <span>컬렉션 백업 다운로드</span>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 3v13M5 16l7 5 7-5M3 20h18"/></svg>
+    </button>
+  </div>
+</section>
+
+<!-- ── ABOUT ── -->
+<section id="about">
+  <div class="about-inner">
+    <div class="about-text">
+      <p class="section-label">About</p>
+      <h2>Lumière Museum</h2>
+      <p class="about-quote">"빛이 없으면 스테인드글라스도 없다.<br/>우리는 빛을 수집한다."</p>
+      <p>이 박물관은 스테인드글라스와 입체 유리 예술을 사랑하는 개인이 운영하는 프라이빗 뮤지엄입니다. 모든 작품은 브라우저 로컬 스토리지에 안전하게 보관되며, 언제든지 JSON 형식으로 내보낼 수 있습니다.</p>
+      <p class="about-stats">
+        <span id="stat-count">0</span> 작품 등록됨 &nbsp;|&nbsp;
+        <span id="stat-size">0 KB</span> 데이터 보존 중
+      </p>
+    </div>
+    <div class="about-mosaic" id="about-mosaic"></div>
+  </div>
+</section>
+
+<!-- ── FOOTER ── -->
+<footer>
+  <div class="footer-brand">Lumière</div>
+  <p>© 2026 Lumière Private Museum · 스테인드글라스 개인 박물관</p>
+  <div class="footer-links">
+    <button onclick="downloadBackup()">백업 다운로드</button>
+    <button onclick="importBackup()">백업 불러오기</button>
+  </div>
+</footer>
+
+<!-- ── ARCHIVE MODAL ── -->
+<div id="archive-modal" class="modal-overlay" style="display:none;">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeArchive()">✕</button>
+    <h2>작품 등록</h2>
+    <p class="modal-sub">스테인드글라스 및 입체 미술 작품을 아카이빙합니다</p>
+
+    <form id="archive-form" onsubmit="submitArtwork(event)">
+      <div class="form-row">
+        <div class="form-group">
+          <label>작품명 *</label>
+          <input type="text" id="art-title" placeholder="작품 제목" required />
+        </div>
+        <div class="form-group">
+          <label>제작연도</label>
+          <input type="number" id="art-year" placeholder="예: 2024" min="1000" max="2099" />
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label>작가</label>
+          <input type="text" id="art-artist" placeholder="작가명" />
+        </div>
+        <div class="form-group">
+          <label>작품 유형</label>
+          <select id="art-type">
+            <option value="stained-glass">스테인드글라스</option>
+            <option value="3d-glass">입체 유리 조각</option>
+            <option value="mosaic">모자이크 유리</option>
+            <option value="fused-glass">퓨즈드 글라스</option>
+            <option value="leaded-glass">레디드 글라스</option>
+            <option value="other">기타</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label>크기 (가로 × 세로 × 깊이 cm)</label>
+          <input type="text" id="art-size" placeholder="예: 80 × 120 × 5" />
+        </div>
+        <div class="form-group">
+          <label>재료 / 기법</label>
+          <input type="text" id="art-medium" placeholder="예: 납틀, 색유리, 에폭시" />
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>설명</label>
+        <textarea id="art-desc" rows="3" placeholder="작품에 대한 설명, 영감, 특징 등을 자유롭게 기술하세요"></textarea>
+      </div>
+
+      <div class="form-group">
+        <label>이미지 업로드</label>
+        <div class="upload-zone" id="upload-zone" ondrop="handleDrop(event)" ondragover="handleDragOver(event)" ondragleave="handleDragLeave(event)">
+          <input type="file" id="art-images" accept="image/*" multiple onchange="handleFiles(this.files)" style="display:none"/>
+          <div class="upload-inner" onclick="document.getElementById('art-images').click()">
+            <div class="upload-icon">◈</div>
+            <p>클릭하거나 이미지를 드래그하세요</p>
+            <p class="upload-hint">JPG, PNG, WEBP 지원 · 여러 장 가능</p>
+          </div>
+          <div class="upload-preview" id="upload-preview"></div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>전시 위치 / 보관 장소</label>
+        <input type="text" id="art-location" placeholder="예: 거실 동쪽 벽, 창고 B-3" />
+      </div>
+
+      <div class="form-group">
+        <label>컨디션</label>
+        <select id="art-condition">
+          <option value="excellent">완벽 (Excellent)</option>
+          <option value="good">양호 (Good)</option>
+          <option value="fair">보통 (Fair)</option>
+          <option value="restoration">복원 필요 (Needs Restoration)</option>
+        </select>
+      </div>
+
+      <div class="form-actions">
+        <button type="button" onclick="closeArchive()">취소</button>
+        <button type="submit" class="btn-primary">작품 등록 완료</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<!-- ── DETAIL MODAL ── -->
+<div id="detail-modal" class="modal-overlay" style="display:none;">
+  <div class="modal-box modal-detail">
+    <button class="modal-close" onclick="closeDetail()">✕</button>
+    <div id="detail-content"></div>
+  </div>
+</div>
+
+<!-- ── IMPORT MODAL ── -->
+<div id="import-modal" class="modal-overlay" style="display:none;">
+  <div class="modal-box modal-small">
+    <button class="modal-close" onclick="document.getElementById('import-modal').style.display='none'">✕</button>
+    <h2>백업 불러오기</h2>
+    <p>이전에 다운로드한 JSON 백업 파일을 선택하세요.<br/><strong>주의:</strong> 기존 데이터에 병합됩니다.</p>
+    <input type="file" id="import-file" accept=".json" onchange="processImport(this)" />
+    <label for="import-file" class="btn-primary" style="display:inline-block;cursor:pointer;margin-top:1rem;">파일 선택</label>
+  </div>
+</div>
+
+<!-- ── TOAST ── -->
+<div id="toast" class="toast"></div>
+
+<script src="js/app.js"></script>
+</body>
+</html>
