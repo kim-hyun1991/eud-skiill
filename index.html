@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Lumière · 스테인드글라스 개인 박물관</title>
+  <title>심임보 Lumière · 스테인드글라스 개인 박물관 | 국민대학교
   <link rel="stylesheet" href="css/main.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -25,6 +25,7 @@
   <ul class="nav-links">
     <li><a href="#hero">홈</a></li>
     <li><a href="#collection">컬렉션</a></li>
+    <li><a href="#curator">큐레이터</a></li>
     <li><a href="#archive">아카이브</a></li>
     <li><a href="#about">소개</a></li>
   </ul>
@@ -36,10 +37,13 @@
   <canvas id="glass-canvas"></canvas>
   <div class="hero-overlay"></div>
   <div class="hero-content">
-    <p class="hero-sub">Private Museum of Stained Glass Art</p>
+    <p class="hero-sub">Prof. In-Bo Shim · Private Museum of Stained Glass Art</p>
     <h1 class="hero-title">빛을 담은<br/><em>스테인드글라스</em></h1>
-    <p class="hero-desc">색유리와 빛이 만나 탄생하는 입체적 예술의 세계로 당신을 초대합니다</p>
-    <a href="#collection" class="hero-btn">컬렉션 감상하기</a>
+    <p class="hero-desc">나노물리학자 심임보 교수가 수집한 색유리와 빛의 예술 — 과학과 예술이 만나는 유일한 공간</p>
+    <div class="hero-btns">
+      <a href="#collection" class="hero-btn">컬렉션 감상하기</a>
+      <a href="#curator" class="hero-btn hero-btn-ghost">큐레이터 소개</a>
+    </div>
   </div>
   <div class="hero-scroll">
     <span></span>
@@ -83,6 +87,122 @@
     <div class="empty-icon">◈</div>
     <p>아직 등록된 작품이 없습니다.<br/>첫 번째 작품을 등록해 보세요.</p>
     <button onclick="openArchive()">작품 등록하기</button>
+  </div>
+</section>
+
+<!-- ── CURATOR SECTION ── -->
+<section id="curator">
+  <div class="curator-inner">
+    <div class="curator-portrait-wrap">
+      <div class="curator-portrait-frame">
+        <div class="curator-portrait-glass-top"></div>
+        <img
+          id="curator-photo"
+          src="assets/images/professor-shim.jpg"
+          alt="심임보 교수"
+          onerror="this.style.display='none';document.getElementById('curator-portrait-fallback').style.display='flex';"
+        />
+        <div id="curator-portrait-fallback" class="curator-portrait-fallback">
+          <div class="curator-initials">심<br/>임<br/>보</div>
+        </div>
+        <div class="curator-portrait-glass-bottom"></div>
+      </div>
+      <div class="curator-portrait-label">
+        <span>큐레이터</span>
+        <strong>Curator</strong>
+      </div>
+      <label class="curator-photo-upload-btn" for="curator-photo-input" title="사진 교체">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="13" height="13"><path d="M12 5v14M5 12h14"/></svg>
+        사진 변경
+      </label>
+      <input type="file" id="curator-photo-input" accept="image/*" style="display:none" onchange="uploadCuratorPhoto(this)" />
+    </div>
+
+    <div class="curator-info">
+      <p class="section-label">Curator · Museum Owner</p>
+      <h2 class="curator-name">심임보<em>교수</em></h2>
+      <p class="curator-name-en">Prof. In-Bo Shim, Ph.D.</p>
+
+      <div class="curator-affil">
+        <span class="affil-badge">국민대학교</span>
+        <span class="affil-badge">나노전자물리학과</span>
+        <span class="affil-badge">과학기술대학</span>
+      </div>
+
+      <p class="curator-bio">
+        나노물리학과 자성 나노입자 연구의 선구자. 물리학과 예술의 교차점에서 스테인드글라스의 빛의 물리학을 탐구합니다.
+        색유리를 통과하는 빛의 굴절·산란·흡수 현상은 나노물질 연구자에게 또 다른 실험실입니다.
+        이 박물관은 과학자의 눈으로 바라본 색유리 예술의 아카이브입니다.
+      </p>
+
+      <div class="curator-stats-row">
+        <div class="curator-stat">
+          <span class="c-num">163</span>
+          <span class="c-lbl">논문 발표</span>
+        </div>
+        <div class="curator-stat">
+          <span class="c-num">2,234</span>
+          <span class="c-lbl">피인용 횟수</span>
+        </div>
+        <div class="curator-stat">
+          <span class="c-num">30+</span>
+          <span class="c-lbl">년 연구 경력</span>
+        </div>
+      </div>
+
+      <div class="curator-roles">
+        <div class="role-item">
+          <span class="role-dot"></span>
+          <div>
+            <strong>나노전자물리학과 주임교수</strong>
+            <span>Department of Nano &amp; Electronic Physics</span>
+          </div>
+        </div>
+        <div class="role-item">
+          <span class="role-dot"></span>
+          <div>
+            <strong>일반대학원 물리학과 주임교수</strong>
+            <span>Graduate School · Physics</span>
+          </div>
+        </div>
+        <div class="role-item">
+          <span class="role-dot"></span>
+          <div>
+            <strong>스핀양자뫼스바우어분광연구소장</strong>
+            <span>Spin Quantum Mössbauer Spectroscopy Lab</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="curator-research">
+        <p class="section-label" style="margin-bottom:0.7rem">Research Fields</p>
+        <div class="research-tags">
+          <span>나노입자 합성</span>
+          <span>X선 회절 분석</span>
+          <span>뫼스바우어 분광학</span>
+          <span>자성 나노소재</span>
+          <span>나노구조체</span>
+          <span>SEM 분석</span>
+          <span>바이오메디컬 응용</span>
+          <span>페라이트 나노입자</span>
+        </div>
+      </div>
+
+      <div class="curator-contact">
+        <a href="mailto:ibshim@kookmin.ac.kr" class="contact-link">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 8l9 6 9-6M3 8v10a1 1 0 001 1h16a1 1 0 001-1V8M3 8a1 1 0 011-1h16a1 1 0 011 1"/></svg>
+          ibshim@kookmin.ac.kr
+        </a>
+        <span class="contact-link">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 5h18v14H3zM3 5l9 9 9-9"/></svg>
+          02-910-4757
+        </span>
+        <a href="https://cst.kookmin.ac.kr/nano/professor" target="_blank" rel="noopener" class="contact-link">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2a10 10 0 100 20A10 10 0 0012 2zm0 0c-2 4-2 16 0 20m0-20c2 4 2 16 0 20M2 12h20"/></svg>
+          국민대 교수 프로필
+        </a>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -142,14 +262,20 @@
 <section id="about">
   <div class="about-inner">
     <div class="about-text">
-      <p class="section-label">About</p>
-      <h2>Lumière Museum</h2>
-      <p class="about-quote">"빛이 없으면 스테인드글라스도 없다.<br/>우리는 빛을 수집한다."</p>
-      <p>이 박물관은 스테인드글라스와 입체 유리 예술을 사랑하는 개인이 운영하는 프라이빗 뮤지엄입니다. 모든 작품은 브라우저 로컬 스토리지에 안전하게 보관되며, 언제든지 JSON 형식으로 내보낼 수 있습니다.</p>
+      <p class="section-label">About · Lumière Museum</p>
+      <h2>심임보의<br/><em>빛의 박물관</em></h2>
+      <p class="about-quote">"빛이 없으면 스테인드글라스도 없다.<br/>물리학자는 빛을, 예술가는 색을 수집한다.<br/>나는 둘 다 수집한다."<br/><span style="font-size:0.8rem;opacity:0.6;">— 심임보, 국민대학교 나노전자물리학과</span></p>
+      <p>국민대학교 나노전자물리학과 심임보 교수가 운영하는 프라이빗 스테인드글라스 뮤지엄입니다.
+      수십 년간 나노물질의 광학적 특성을 연구해온 물리학자의 시선으로 큐레이션된 색유리 예술 컬렉션을 만나보세요.
+      모든 작품은 브라우저에 안전하게 보관되며 JSON 형식으로 영구 아카이빙됩니다.</p>
       <p class="about-stats">
         <span id="stat-count">0</span> 작품 등록됨 &nbsp;|&nbsp;
         <span id="stat-size">0 KB</span> 데이터 보존 중
       </p>
+      <a href="pages/backup.html" class="about-backup-link">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="14" height="14"><path d="M12 3v13M5 16l7 5 7-5M3 20h18"/></svg>
+        컬렉션 백업 페이지
+      </a>
     </div>
     <div class="about-mosaic" id="about-mosaic"></div>
   </div>
@@ -158,10 +284,12 @@
 <!-- ── FOOTER ── -->
 <footer>
   <div class="footer-brand">Lumière</div>
-  <p>© 2026 Lumière Private Museum · 스테인드글라스 개인 박물관</p>
+  <p class="footer-curator">큐레이터 · <strong>심임보</strong> 교수 &nbsp;|&nbsp; 국민대학교 나노전자물리학과</p>
+  <p>© 2026 Lumière Private Museum · 스테인드글라스 개인 박물관 · ibshim@kookmin.ac.kr</p>
   <div class="footer-links">
     <button onclick="downloadBackup()">백업 다운로드</button>
     <button onclick="importBackup()">백업 불러오기</button>
+    <a href="pages/backup.html" style="display:inline-block;padding:0.5rem 1.2rem;border:1px solid rgba(201,168,76,0.3);color:rgba(201,168,76,0.7);font-size:0.75rem;text-decoration:none;transition:all 0.3s;">백업 관리</a>
   </div>
 </footer>
 

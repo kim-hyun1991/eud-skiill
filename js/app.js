@@ -15,9 +15,39 @@ window.addEventListener('DOMContentLoaded', () => {
   initGlassCanvas();
   initRosette();
   initAboutMosaic();
+  initCuratorPhoto();
   renderGallery();
   updateStats();
 });
+
+// ── CURATOR PHOTO ──────────────────────────────────────────────────────
+const CURATOR_PHOTO_KEY = 'lumiere_curator_photo_v1';
+
+function initCuratorPhoto() {
+  const saved = localStorage.getItem(CURATOR_PHOTO_KEY);
+  if (saved) {
+    const img = document.getElementById('curator-photo');
+    if (img) { img.src = saved; img.style.display = 'block'; }
+    const fb = document.getElementById('curator-portrait-fallback');
+    if (fb) fb.style.display = 'none';
+  }
+}
+
+function uploadCuratorPhoto(input) {
+  const file = input.files[0];
+  if (!file) return;
+  const reader = new FileReader();
+  reader.onload = ev => {
+    const dataUrl = ev.target.result;
+    localStorage.setItem(CURATOR_PHOTO_KEY, dataUrl);
+    const img = document.getElementById('curator-photo');
+    if (img) { img.src = dataUrl; img.style.display = 'block'; }
+    const fb = document.getElementById('curator-portrait-fallback');
+    if (fb) fb.style.display = 'none';
+    showToast('큐레이터 사진이 업데이트되었습니다.');
+  };
+  reader.readAsDataURL(file);
+}
 
 function initLoader() {
   const loader = document.getElementById('loader');
